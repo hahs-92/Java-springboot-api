@@ -45,4 +45,7 @@ public class ProductEntity {
     private CategoryEntity category;
 
     //no se realizo la relacion con compras- productos
+
 }
+
+

@@ -41,7 +41,7 @@ public class PurchaseEntity {
     //cliente
     @ManyToOne
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
-    private ClientEntity clientEntity;
+    private ClientEntity client;
 
     //compras - Productos
     @OneToMany(mappedBy = "purchase")

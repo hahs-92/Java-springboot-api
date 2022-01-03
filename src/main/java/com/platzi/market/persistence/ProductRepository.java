@@ -16,6 +16,7 @@ public class ProductRepository implements IProductRepository {
     private final IProductCrudRepository iProductCrudRepository;
     private final IProductMapper mapper;
 
+
     @Autowired //inyeccion de dependencias
     public ProductRepository(IProductCrudRepository iProductCrudRepository, IProductMapper mapper) {
         this.iProductCrudRepository = iProductCrudRepository;
@@ -30,16 +31,16 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public Optional<List<Product>> getByCategory(int categoryId) {
-        List<ProductEntity> products = iProductCrudRepository.findIdCategory(categoryId);
+    public Optional<List<Product>> getByIdCategory(int categoryId) {
+        List<ProductEntity> products = iProductCrudRepository.findByIdCategory(categoryId);
         return Optional.of(mapper.toProducts(products));
     }
 
-    @Override
+    /*@Override
     public Optional<List<Product>> getByCategoryOrderByNameAsc(int categoryId) {
         List<ProductEntity> products = iProductCrudRepository.findIdCategoryOrderByNameAsc(categoryId);
         return Optional.of(mapper.toProducts(products));
-    }
+    }*/
 
     @Override
     public Optional<List<Product>> getScarseProducts(int quantity) {

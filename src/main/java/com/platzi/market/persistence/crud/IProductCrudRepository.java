@@ -11,7 +11,7 @@ public interface IProductCrudRepository extends CrudRepository<ProductEntity, In
     //QUERY METHODS
     //idCategory es la variable en Productos por la que quremos buscar
     //por eso el nombre del metodo
-    List<ProductEntity> findIdCategory(int idCategory);
+    List<ProductEntity> findByIdCategory(int idCategory);
 
     /*
     //tambien se podria hacer con la anotacion @Query
@@ -19,7 +19,7 @@ public interface IProductCrudRepository extends CrudRepository<ProductEntity, In
     List<Product> getByCategoryId(int idCategory); // aqui se puede llama el metofo como queramos
      */
 
-    List<ProductEntity> findIdCategoryOrderByNameAsc(int idCategory);
+    //List<ProductEntity> findByIdCategoryOrderByNameAsc(int idCategory);
 
     Optional<List<ProductEntity>> findByStockLessThanAndStatus(int stock, boolean status);
 

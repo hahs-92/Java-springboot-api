@@ -30,4 +30,5 @@ public class CategoryEntity { //podria llamarse CategoryEntity por buenas practi
     //con product
     @OneToMany(mappedBy = "category") // la variable con la que se relaciona
     private List<ProductEntity> products;
+
 }

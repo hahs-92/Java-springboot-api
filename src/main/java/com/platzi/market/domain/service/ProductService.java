@@ -2,6 +2,7 @@ package com.platzi.market.domain.service;
 
 import com.platzi.market.domain.Product;
 import com.platzi.market.domain.repository.IProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 public class ProductService {
     private final IProductRepository iProductRepository;
 
+    @Autowired
     public ProductService(IProductRepository iProductRepository) {
         this.iProductRepository = iProductRepository;
     }
@@ -24,8 +26,8 @@ public class ProductService {
         return iProductRepository.getProduct(productId);
     }
 
-    public Optional<List<Product>> getByCategory(int categoryId) {
-        return iProductRepository.getByCategory(categoryId);
+    public Optional<List<Product>> getByIdCategory(int categoryId) {
+        return iProductRepository.getByIdCategory(categoryId);
     }
 
     public Product save(Product product) {
