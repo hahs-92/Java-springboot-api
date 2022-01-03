@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,4 +25,9 @@ public class Category {
 
     @Column(name = "estado")
     private Boolean status;
+
+    //relaciones
+    //con product
+    @OneToMany(mappedBy = "category") // la variable con la que se relaciona
+    private List<Product> products;
 }

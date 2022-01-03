@@ -39,4 +39,11 @@ public class Product {
 
     @Column(name = "estado")
     private Boolean status;
+
+    //relaciones
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false) // false -> no se creara o inserta una ctg, solo es para saber en q ctg pertenece un producto
+    private Category category;
+
+    //no se realizo la relacion con compras- productos
 }

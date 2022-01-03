@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -35,4 +36,14 @@ public class Purchase {
 
     @Column(name = "estado")
     private  String status;
+
+    //relaciones
+    //cliente
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
+    private Client client;
+
+    //compras - Productos
+    @OneToMany(mappedBy = "purchase")
+    private List<PurchasesProduct> products;
 }
