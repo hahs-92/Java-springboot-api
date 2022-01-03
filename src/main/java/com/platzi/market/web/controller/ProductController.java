@@ -3,9 +3,7 @@ package com.platzi.market.web.controller;
 import com.platzi.market.domain.Product;
 import com.platzi.market.domain.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,19 +23,23 @@ public class ProductController {
         return service.getAll();
     }
 
-    public Optional<Product> getProduct(int productId) {
+    @GetMapping("/{productId}")
+    public Optional<Product> getProduct(@PathVariable int productId) {
         return  service.getProduct(productId);
     }
 
-    public Optional<List<Product>> getByIdCategory(int categoryId) {
+    @GetMapping("/category/{categoryId}")
+    public Optional<List<Product>> getByIdCategory(@PathVariable int categoryId) {
         return service.getByIdCategory(categoryId);
     }
 
-    public Product save(Product product) {
+    @PostMapping("/")
+    public Product save(@RequestBody Product product) {
         return service.save(product);
     }
 
-    public boolean delete(int productId) {
+    @DeleteMapping("/{productId}")
+    public boolean delete(@PathVariable int productId) {
         return service.delete(productId);
     }
 }
