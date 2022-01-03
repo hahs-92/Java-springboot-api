@@ -1,9 +1,27 @@
 package com.platzi.market.persistence.crud;
 
 import com.platzi.market.persistence.entity.Product;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
+import java.util.Optional;
 
 //<> la clase(entity) y el tipo de variable que sea el ID
 public interface ProductCrudRepository extends CrudRepository<Product, Integer> {
+    //QUERY METHODS
+    //idCategory es la variable en Productos por la que quremos buscar
+    //por eso el nombre del metodo
+    List<Product> findIdCategory(int idCategory);
+
+    /*
+    //tambien se podria hacer con la anotacion @Query
+    @Query(value = "SELECT * FROM productos WHERE id_categoria = ?", nativeQuery = true)
+    List<Product> getByCategoryId(int idCategory); // aqui se puede llama el metofo como queramos
+     */
+
+    List<Product> findIdCategoryOrderByNameAsc(int idCategory);
+
+    Optional<List<Product>> findByStockLessThanAndStatus(int stock, boolean status);
 
 }
