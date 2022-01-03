@@ -9,23 +9,25 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = { CategoryMapper.class}) //para convertir categoria en category use ese mapper
-public interface ProductMapper {
+@Mapper(componentModel = "spring", uses = { ICategoryMapper.class}) //para convertir categoria en category use ese mapper
+public interface IProductMapper {
     //no es necesario hacer el mapper con si los atributos tienen el mismo nombre
     //se podria omitir Mappings y agregar solo los Mapping
+    //si se tiene las propiedades con los mismo nombres no es necesario agregar el source y target
     @Mappings({
             @Mapping(source = "idProduct", target = "id"),
             @Mapping(source = "idCategory", target = "categoryId"),
             @Mapping(source = "salePrice", target = "price"),
             @Mapping(source = "status", target = "active"),
     })
-    Product toProductEntity(ProductEntity productEntity);
+    Product toProduct(ProductEntity productEntity);
     //no es necesario hacer el mapper xq ya se hizo arriba
-    List<Product> toProductsEntity(List<ProductEntity> productsEntity);
+    //creamos este metodo xq en algunos casos es necesario retornar una lista
+    List<Product> toProducts(List<ProductEntity> productsEntity);
 
     //tampoco es necesario el mapper xq ya se hizo arriba
     @InheritInverseConfiguration()
     @Mapping(target = "barCode", ignore = true) //no agregamos ese atributo en la conversion
-    ProductEntity toProduct(Product product);
+    ProductEntity toProductEntity(Product product);
 
 }

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 //<> la clase(entity) y el tipo de variable que sea el ID
-public interface ProductCrudRepository extends CrudRepository<ProductEntity, Integer> {
+public interface IProductCrudRepository extends CrudRepository<ProductEntity, Integer> {
     //QUERY METHODS
     //idCategory es la variable en Productos por la que quremos buscar
     //por eso el nombre del metodo
