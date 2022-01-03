@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
@@ -16,7 +15,7 @@ import javax.persistence.*;
 //@SuperBuilder
 @Entity
 @Table(name = "productos") //productos -> nombre de la tabla en la DB
-public class Product {
+public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_producto")
@@ -43,7 +42,7 @@ public class Product {
     //relaciones
     @ManyToOne
     @JoinColumn(name = "id_categoria", insertable = false, updatable = false) // false -> no se creara o inserta una ctg, solo es para saber en q ctg pertenece un producto
-    private Category category;
+    private CategoryEntity category;
 
     //no se realizo la relacion con compras- productos
 }

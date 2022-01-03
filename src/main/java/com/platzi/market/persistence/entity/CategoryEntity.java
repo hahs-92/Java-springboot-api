@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "categorias")
-public class Category {
+public class CategoryEntity { //podria llamarse CategoryEntity por buenas practicas
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
@@ -29,5 +29,5 @@ public class Category {
     //relaciones
     //con product
     @OneToMany(mappedBy = "category") // la variable con la que se relaciona
-    private List<Product> products;
+    private List<ProductEntity> products;
 }

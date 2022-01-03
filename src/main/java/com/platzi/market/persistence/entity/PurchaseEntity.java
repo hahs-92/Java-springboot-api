@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "compras")
-public class Purchase {
+public class PurchaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,9 +41,9 @@ public class Purchase {
     //cliente
     @ManyToOne
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
-    private Client client;
+    private ClientEntity clientEntity;
 
     //compras - Productos
     @OneToMany(mappedBy = "purchase")
-    private List<PurchasesProduct> products;
+    private List<PurchasesProductEntity> products;
 }

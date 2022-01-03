@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "clientes")
-public class Client {
+public class ClientEntity {
     @Id
     private String id;
 
@@ -32,5 +32,5 @@ public class Client {
 
     //relaciones -> purchase
     @OneToMany(mappedBy = "client")
-    private List<Purchase> purchases;
+    private List<PurchaseEntity> purchases;
 }
