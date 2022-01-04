@@ -28,7 +28,7 @@ public class PurchaseController {
         }
     }
 
-    @GetMapping("client/{id}")
+    @GetMapping("client/{clientId}")
     public ResponseEntity<List<Purchase>> getByClient(@PathVariable String clientId) {
         try {
             return purchaseService.getByClientId(clientId)
