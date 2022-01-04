@@ -27,6 +27,7 @@ public class PurchasesProductEntity {
 
     //relaciones
     @ManyToOne
+    @MapsId("idPurchase") //cascada
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
     private PurchaseEntity purchase;
 
